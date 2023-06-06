@@ -12,5 +12,5 @@ spec:
       port: 80
       targetPort: 8080
   selector:
-    app: tomcat
+    {{- include "tomcat-chart.selectorLabels" . | nindent 4 }}
   type: ClusterIP
