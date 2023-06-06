@@ -1,0 +1,31 @@
+app: 
+  env: prod
+
+spec:
+  replicaCount: 3
+  image:
+    repository: tomcat
+    tag: latest
+    pullPolicy: IfNotPresent
+  resources:
+    limits: 
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+hpa:
+  enabled: true
+  maxReplicas: 5
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+
+config:
+  name: config.yaml
+  data:
+    timeout: 10s
+    logfile: /var/log/tomcat.log
+    database:
+      ip: 192.168.1.3
+      name: tomcat-prod

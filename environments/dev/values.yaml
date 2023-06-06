@@ -1,0 +1,28 @@
+app: 
+  env: dev
+
+spec:
+  replicaCount: 1
+  image:
+    repository: tomcat
+    tag: latest
+    pullPolicy: IfNotPresent
+  resources:
+    limits: 
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+hpa:
+  enabled: false
+
+config:
+  name: config.yaml
+  data:
+    timeout: 10s
+    logfile: /var/log/tomcat.log
+    database:
+      ip: 192.168.1.1
+      name: tomcat-dev

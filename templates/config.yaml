@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tomcat-config
+  labels:
+     {{- include "tomcat-chart.labels" . | nindent 4 }}
+data:
+  {{ .Values.config.name }}: |
+    {{- toYaml .Values.config.data | nindent 4 }}
