@@ -1,17 +1,20 @@
+{{/*
+Common labels
+*/}}
 {{- define "tomcat-chart.labels" -}}
-{{ include "tomcat-chart.selectorLabels" . }}
 helm.sh/chart: {{ include "tomcat-chart.chart" . }}
+{{ include "tomcat-chart.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end -}}
+{{- end }}
 
 {{/*
 Expand the name of the chart.
 */}}
 {{- define "tomcat-chart.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- default .Chart.Name .Values.app.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 

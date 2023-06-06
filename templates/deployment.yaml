@@ -8,11 +8,11 @@ spec:
   replicas: {{ .Values.spec.replicaCount }}
   selector:
     matchLabels:
-      app: tomcat
+      {{- include "tomcat-chart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "tomcat-chart.labels" . | nindent 8 }}
+        {{- include "tomcat-chart.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: tomcat-container
