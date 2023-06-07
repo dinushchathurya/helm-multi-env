@@ -8,7 +8,7 @@ spec:
   selector:
     {{- include "tomcat-chart.selectorLabels" . | nindent 4 }}
   ports:
-    - protocol: http
+    - protocol: TCP
       port: 80
       targetPort: 8080
   selector:
