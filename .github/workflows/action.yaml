@@ -23,19 +23,17 @@ jobs:
 
       - name: Check Helm version
         run: helm version
-        
+
       - name: Deploy Helm chart to dev environment
         run: |
           kubectl create namespace dev
-          kubectl get ns
           kubectl config set-context --current --namespace=dev
           helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml --debug
-          kubectl get all -n dev
     
       - name: Test service URLs
         run: |
             minikube service list
-            minikube service tomcat-service --url
+            minikube service tomcat-service --url -n dev
      
 
 
