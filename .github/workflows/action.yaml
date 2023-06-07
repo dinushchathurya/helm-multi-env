@@ -26,12 +26,12 @@ jobs:
       - name: Deploy Helm chart to dev environment
         run: |
           kubectl create namespace dev
-          helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev 
+          helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev --debug
     
       - name: Test service URLs
         run: |
             minikube service list
-            minikube service nodejs-app --url
+            minikube service tomcat-demo --url
      
 
 
