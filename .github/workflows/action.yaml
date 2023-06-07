@@ -40,6 +40,8 @@ jobs:
       - name: Get Helm releases
         run: |
             helm list -A
+            helm get values tomcat-demo -n dev
+            helm get values tomcat-demo -n prod
             
      
 
