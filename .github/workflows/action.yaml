@@ -30,9 +30,16 @@ jobs:
           kubectl config set-context --current --namespace=dev
           helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml 
     
+      - name: Deploy Helm chart to prod environment
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+            kubectl create namespace prod
+            kubectl config set-context --current --namespace=prod
+            helm upgrade --install --namespace prod tomcat-demo . -f ./environments/prod/values.yaml
+
       - name: Get Helm releases
         run: |
-            helm list --namespace dev
+            helm list -A
             
      
 
