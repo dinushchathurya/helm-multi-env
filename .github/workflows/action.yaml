@@ -14,17 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Minikube
-        uses: azure/setup-minikube@v1
-        with:
-          minikube-version: latest
-          kubernetes-version: latest
-
-      - name: Start Minikube
-        run: minikube start
-
-      - name: Configure Minikube environment
-        run: minikube update-context
+      - name: Start minikube
+        uses: medyagh/setup-minikube@master
+    
+      - name: Try the cluster !
+        run: kubectl get pods -A
 
       - name: Install Helm
         uses: azure/setup-helm@v1
