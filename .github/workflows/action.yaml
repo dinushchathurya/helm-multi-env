@@ -36,8 +36,6 @@ jobs:
             kubectl create namespace prod
             kubectl config set-context --current --namespace=prod
             helm upgrade --install --namespace prod tomcat-demo . -f ./environments/prod/values.yaml
-            helm template --namespace prod tomcat-demo . -f ./environments/prod/values.yaml > prod_manifest.yaml
-            cat prod_manifest.yaml
 
       - name: Get Helm releases
         run: |
