@@ -33,6 +33,7 @@ jobs:
       - name: Get Helm releases
         run: |
             helm list --namespace dev
+            
      
 
 
