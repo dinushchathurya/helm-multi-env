@@ -17,7 +17,7 @@ jobs:
       - name: Start minikube
         uses: medyagh/setup-minikube@master
     
-      - name: Try the cluster !
+      - name: Get Pods
         run: kubectl get pods -A
 
       - name: Install Helm
@@ -27,5 +27,6 @@ jobs:
 
       - name: Deploy Helm chart to dev environment
         run: |
+          kubectl create namespace dev
           helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev --create-namespace 
 
