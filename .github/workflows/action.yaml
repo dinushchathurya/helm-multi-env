@@ -28,5 +28,5 @@ jobs:
       - name: Deploy Helm chart to dev environment
         run: |
           kubectl create namespace dev
-          helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev --create-namespace 
+          helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev 
 
