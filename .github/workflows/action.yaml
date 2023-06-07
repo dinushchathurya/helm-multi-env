@@ -28,12 +28,11 @@ jobs:
         run: |
           kubectl create namespace dev
           kubectl config set-context --current --namespace=dev
-          helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml --debug
+          helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml 
     
-      - name: Test service URLs
+      - name: Get Helm releases
         run: |
-            minikube service list
-            minikube service tomcat-service --url -n dev
+            helm list --namespace dev
      
 
 
