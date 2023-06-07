@@ -19,13 +19,15 @@ jobs:
         run: kubectl get pods -A
 
       - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: latest
+        run: |
+          sudo apt install helm
+          helm version
 
       - name: Deploy Helm chart to dev environment
         run: |
           kubectl create namespace dev
+          kubectl get ns
+          kubectl config set-context --current --namespace=dev
           helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml --debug
           kubectl get all -n dev
     
