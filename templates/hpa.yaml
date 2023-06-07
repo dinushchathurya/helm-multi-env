@@ -10,6 +10,6 @@ spec:
   scaleTargetRef:
     apiVersion: extensions/v1
     kind: Deployment
-    name: tomcat
+    name: {{ include "tomcat-chart.fullname" . }}
   targetCPUUtilizationPercentage: {{ .Values.hpa.targetCPUUtilizationPercentage }}
 {{- end -}}
