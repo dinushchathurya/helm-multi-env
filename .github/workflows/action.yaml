@@ -18,11 +18,12 @@ jobs:
       - name: Get Pods
         run: kubectl get pods -A
 
-      - name: Install Helm
-        run: |
-          sudo apt install helm
-          helm version
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v3
 
+      - name: Check Helm version
+        run: helm version
+        
       - name: Deploy Helm chart to dev environment
         run: |
           kubectl create namespace dev
