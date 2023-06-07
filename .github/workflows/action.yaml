@@ -27,6 +27,7 @@ jobs:
         run: |
           kubectl create namespace dev
           helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml --debug
+          kubectl get all -n dev
     
       - name: Test service URLs
         run: |
