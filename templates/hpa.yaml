@@ -2,6 +2,7 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
+  name: {{ include "tomcat-chart.fullname" . }}
   annotations:
     {{- include "tomcat-chart.labels" . | nindent 4 }}
 spec:
