@@ -8,9 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -29,4 +27,11 @@ jobs:
         run: |
           kubectl create namespace dev
           helm upgrade --install tomcat-demo . -f ./environments/dev/values.yaml --namespace dev 
+    
+      - name: Test service URLs
+        run: |
+            minikube service list
+            minikube service nodejs-app --url
+     
+
 
