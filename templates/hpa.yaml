@@ -2,7 +2,7 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "tomcat-chart.fullname" . }}
+  name: {{ include "tomcat-chart.name" . }}
   annotations:
     {{- include "tomcat-chart.labels" . | nindent 4 }}
 spec:
@@ -11,6 +11,6 @@ spec:
   scaleTargetRef:
     apiVersion: extensions/v1
     kind: Deployment
-    name: {{ include "tomcat-chart.fullname" . }}
+    name: {{ include "tomcat-chart.name" . }}
   targetCPUUtilizationPercentage: {{ .Values.hpa.targetCPUUtilizationPercentage }}
 {{- end -}}

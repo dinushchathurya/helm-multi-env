@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "tomcat-chart.fullname" . }}
+  name: {{ include "tomcat-chart.name" . }}
   labels: 
     {{- include "tomcat-chart.labels" . | nindent 4 }}
 spec:

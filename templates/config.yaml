@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tomcat-config
+  name: {{ include "tomcat-chart.name" . }}
   labels:
      {{- include "tomcat-chart.labels" . | nindent 4 }}
 data:
