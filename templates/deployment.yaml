@@ -19,6 +19,6 @@ spec:
           image: {{ .Values.spec.image.repository }}:{{ .Values.spec.image.tag }}
           imagePullPolicy: {{ .Values.spec.image.pullPolicy }}
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
           resources:
             {{- toYaml .Values.spec.resources | nindent 12 }}
