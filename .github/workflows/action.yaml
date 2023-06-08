@@ -30,7 +30,7 @@ jobs:
           kubectl create namespace dev
           kubectl config set-context --current --namespace=dev
           helm upgrade --install --namespace dev tomcat-demo . -f ./environments/dev/values.yaml 
-          kubectl get deployment tomcat-demo -n dev -o yaml
+          kubectl get all -n dev
     
       - name: Deploy Helm chart to prod environment
         run: |
