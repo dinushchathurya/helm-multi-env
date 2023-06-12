@@ -29,7 +29,7 @@ jobs:
         run: |
           kubectl create namespace dev
           kubectl config set-context --current --namespace=dev
-          helm install --dry-run --debug --namespace dev tomcat-release . -f ./environments/dev/values.yaml
+          # helm install --dry-run --debug --namespace dev tomcat-release . -f ./environments/dev/values.yaml
           helm upgrade --install --namespace dev tomcat-release . -f ./environments/dev/values.yaml 
           kubectl get all -n dev
     
@@ -37,7 +37,7 @@ jobs:
         run: |
             kubectl create namespace prod
             kubectl config set-context --current --namespace=prod
-            helm install --dry-run --debug --namespace prod tomcat-release . -f ./environments/prod/values.yaml
+            # helm install --dry-run --debug --namespace prod tomcat-release . -f ./environments/prod/values.yaml
             helm upgrade --install --namespace prod tomcat-release . -f ./environments/prod/values.yaml
             kubectl get all -n prod
 
