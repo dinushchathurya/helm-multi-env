@@ -25,7 +25,7 @@ jobs:
 
       - name: Package Helm Chart for dev
         run: |
-          helm package --version ${{ steps.random-chart-name.outputs.name }} ./tomcat-chart
+          helm package --version ${{ steps.random-chart-name.outputs.version }} .
 
 
 
