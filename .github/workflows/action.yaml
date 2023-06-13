@@ -13,37 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Start minikube
-        uses: medyagh/setup-minikube@master
-    
-      - name: Get Pods
-        run: kubectl get pods -A
-
       - name: Helm tool installer
         uses: Azure/setup-helm@v3
 
       - name: Check Helm version
         run: helm version
 
-      - name: Deploy Helm chart to dev environment
-        run: |
-          kubectl create namespace dev
-          kubectl config set-context --current --namespace=dev
-          # helm install --dry-run --debug --namespace dev tomcat-release . -f ./environments/dev/values.yaml
-          helm upgrade --install --namespace dev tomcat-release . -f ./environments/dev/values.yaml 
-          kubectl get all -n dev
-    
-      - name: Deploy Helm chart to prod environment
-        run: |
-            kubectl create namespace prod
-            kubectl config set-context --current --namespace=prod
-            # helm install --dry-run --debug --namespace prod tomcat-release . -f ./environments/prod/values.yaml
-            helm upgrade --install --namespace prod tomcat-release . -f ./environments/prod/values.yaml
-            kubectl get all -n prod
+      - name: Generate Random Chart Name
+        id: random-release-name
+        run: echo "::set-output name=name::mychart-$((1 + RANDOM % 1000))"
 
-      - name: Get Helm releases
-        run: |
-            helm list -A
-     
 
 
