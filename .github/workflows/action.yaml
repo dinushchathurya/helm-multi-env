@@ -54,7 +54,7 @@ jobs:
         run:
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
           helm repo update
-          helm upgrade --install tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --debug
+          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --install --debug
           
 
       
