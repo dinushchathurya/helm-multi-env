@@ -33,6 +33,16 @@ entries:
     version: v0.8.8-86
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-06-13T08:30:39.761809153Z"
+    description: A Helm chart for tomcat
+    digest: 5a5878d0d87eb43cbbf9620216d0b64fb759ba6a6278957fae5375ef0b344a3d
+    name: tomcat-chart
+    type: application
+    urls:
+    - tomcat-chart-v0.8.7-89.tgz
+    version: v0.8.7-89
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-06-13T07:59:47.157213598Z"
     description: A Helm chart for tomcat
     digest: 07b49ae464d4d44517268f33bb945b9a4a8ace137ab3c1dd2de0910abf22c0ba
@@ -131,4 +141,4 @@ entries:
     urls:
     - tomcat-chart-v0.3.5-78.tgz
     version: v0.3.5-78
-generated: "2023-06-13T08:24:43.607729205Z"
+generated: "2023-06-13T08:30:39.760940044Z"
