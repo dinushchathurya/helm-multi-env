@@ -34,7 +34,7 @@ jobs:
           git config --local user.name "helm-bot"
           git add index.yaml
           git commit -m "feat: Update chart index"
-          git push
+          git push origin HEAD:master
 
 
 
