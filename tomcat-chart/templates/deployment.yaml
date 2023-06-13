@@ -5,6 +5,11 @@ metadata:
   labels: 
     {{- include "tomcat-chart.labels" . | nindent 4 }}
 spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   replicas: {{ .Values.spec.replicaCount }}
   selector:
     matchLabels:

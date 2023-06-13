@@ -5,7 +5,7 @@ spec:
   replicaCount: 2
   image:
     repository: limarktest/tekton-nodejs
-    tag: b03edccda9b961ffbea183c06fbbee1aa56c7c38
+    tag: latest
     pullPolicy: IfNotPresent
   resources:
     limits: 
