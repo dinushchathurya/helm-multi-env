@@ -50,11 +50,15 @@ jobs:
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
     
-      - name: Deploy to Kubernetes cluster
+      - name: Add chart and update
         run:
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
           helm repo update
-          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --install --debug
+          helm repo list
+      
+      - name: Deploy Helm Chart
+        run: |
+          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --install 
           
 
       
