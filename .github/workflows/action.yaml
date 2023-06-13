@@ -25,9 +25,7 @@ jobs:
 
       - name: Package Helm Chart for dev
         run: |
-          ll
-          ls
-          helm package . 
+          helm package . --version ${{ steps.random-chart-name.outputs.name }}
 
 
 
