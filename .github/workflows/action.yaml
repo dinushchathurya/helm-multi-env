@@ -27,7 +27,7 @@ jobs:
         
       - name: Package Helm Chart
         run: |
-          helm package --version ${{ steps.random-version.outputs.version }} .
+          helm package --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
 
       - name: Update index
         run: |
