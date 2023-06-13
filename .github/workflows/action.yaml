@@ -21,11 +21,11 @@ jobs:
 
       - name: Generate Random Chart Name
         id: random-chart-name
-        run: echo "::set-output name=name::mychart-$((1 + RANDOM % 1000))"
+        run: echo "::set-output name=name::tomcat-$((1 + RANDOM % 1000))"
 
       - name: Package Helm Chart for dev
         run: |
-          helm package tomcat -f environments/dev/values.yaml --version ${{ steps.random-chart-name.outputs.name }} 
+          helm package tomcat 
 
 
 
