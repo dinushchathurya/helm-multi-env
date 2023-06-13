@@ -23,9 +23,19 @@ jobs:
         id: random-version
         run: echo "::set-output name=version::$(echo v0.$((1 + RANDOM % 9)).$((1 + RANDOM % 9)))-${{ github.run_number }}"
         
-      - name: Package Helm Chart for dev
+      - name: Package Helm Chart
         run: |
           helm package --version ${{ steps.random-version.outputs.version }} .
+
+      - name: Update index
+        run: |
+          helm repo index .
+          git config --local user.email "helm@dinush.com"
+          git config --local user.name "helm-bot"
+          git add index.yaml
+          git commit -m "feat: Update chart index"
+          git push
+
 
 
 
