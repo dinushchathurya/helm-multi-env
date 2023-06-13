@@ -46,10 +46,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-southeast-1
       
-      - name: Echo AWS User
-        run: |
-          aws sts get-caller-identity
-      
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
@@ -58,8 +54,8 @@ jobs:
         run:
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
           helm repo update
-          helm repo list
-          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --version ${{ steps.random-version.outputs.version }} --namespace dev --debug
+          helm upgrade --install tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --debug
+          
 
       
 
