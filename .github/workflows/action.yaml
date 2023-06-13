@@ -20,8 +20,13 @@ jobs:
         run: helm version
 
       - name: Generate Random Chart Name
-        id: random-release-name
+        id: random-chart-name
         run: echo "::set-output name=name::mychart-$((1 + RANDOM % 1000))"
+
+      - name: Package Helm Chart for dev
+        run: |
+          helm package --values environments/dev/values.yaml --version ${{ steps.random-chart-name.outputs.name }} .
+
 
 
 
