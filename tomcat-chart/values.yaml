@@ -4,8 +4,8 @@ app:
 spec:
   replicaCount: 2
   image:
-    repository: limarktest/nodejs-docker
-    tag: latest
+    repository: limarktest/tekton-nodejs
+    tag: b03edccda9b961ffbea183c06fbbee1aa56c7c38
     pullPolicy: IfNotPresent
   resources:
     limits: 
