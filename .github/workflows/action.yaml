@@ -34,9 +34,10 @@ jobs:
           helm repo index --url https://github.com/dinushchathurya/tomcat-helm-multi-env --merge index.yaml .
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add index.yaml
+          git add .
           git commit -m "feat: Update chart index"
           git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:master -f
+
 
 
 
