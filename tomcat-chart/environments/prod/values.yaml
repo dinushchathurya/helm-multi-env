@@ -4,7 +4,7 @@ app:
 spec:
   replicaCount: 3
   image:
-    repository: tomcat
+    repository: limarktest/nodejs-docker
     tag: latest
     pullPolicy: IfNotPresent
   resources:
