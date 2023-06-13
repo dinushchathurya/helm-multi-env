@@ -35,7 +35,7 @@ jobs:
           git add index.yaml
           git commit -m "feat: Update chart index"
           # git remote set-url origin https://github.com/dinushchathurya/tomcat-helm-multi-env
-          git push https://dinushchathurya:${{secrets.PAT_TOKEN}}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:master -f
+          git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:master -f
           # git push origin master 
         # env:
         #   PAT: ${{ secrets.PAT_TOKEN }}
