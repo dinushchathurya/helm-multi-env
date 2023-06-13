@@ -30,15 +30,14 @@ jobs:
       - name: Update index
         run: |
           helm repo index .
-          git config --local user.email "dinushchathurya21@gmail.com"
-          git config --local user.name "dinushchathurya"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
           git add index.yaml
           git commit -m "feat: Update chart index"
-
-      - name: Push to GitHub
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT_TOKEN }}
+          git remote set-url origin https://github.com/tomcat-helm-multi-env
+          git push origin main
+        env:
+          PAT: ${{ secrets.PAT_TOKEN }}
 
 
 
