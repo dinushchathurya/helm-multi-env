@@ -51,7 +51,7 @@ jobs:
           aws eks update-kubeconfig --name test --region ap-southeast-1
     
       - name: Add chart and update
-        run:
+        run: |
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
           helm repo update
           helm repo list
