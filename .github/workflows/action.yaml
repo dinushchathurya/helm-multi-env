@@ -25,7 +25,9 @@ jobs:
 
       - name: Package Helm Chart for dev
         run: |
-          helm package . -f /environments/dev/values.yaml 
+          ll
+          ls
+          helm package . 
 
 
 
