@@ -34,11 +34,11 @@ jobs:
           git config --local user.name "helm-bot"
           git add index.yaml
           git commit -m "feat: Update chart index"
-          
+
       - name: Push to GitHub
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
 
 
 
