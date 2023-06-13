@@ -49,18 +49,17 @@ jobs:
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
-    
-      - name: Add chart and update
-        run: |
-          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
-          helm repo update
-          helm repo list
-          helm repo update
-          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --install
-          
-
       
+      - name: Deploy to Dev
+        run: |
+          helm upgrade --install tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --values tomcat-chart/environments/dev/values.yaml
 
-
+      # - name: Add chart and update
+      #   run: |
+      #     helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env
+      #     helm repo update
+      #     helm repo list
+      #     helm upgrade tomcat-chart tomcat-chart/tomcat-chart --namespace dev --version ${{ steps.random-version.outputs.version }} --create-namespace --install
+        
 
 
