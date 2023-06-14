@@ -33,16 +33,22 @@ jobs:
         run: |
           mkdir -p ./my-charts
           cp ${{ github.workspace }}/tomcat-chart-${{ steps.random-version.outputs.version }}.tgz ./my-charts/
+      
+      - name: Archive chart file
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-charts
+          path: ./my-charts
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
         with:
           ref: gh-pages
       
-      - name: Copy chart file to new workspace
-        run: |
-          mkdir -p ${{ github.workspace }}/my-charts
-          cp ./my-charts/tomcat-chart-${{ steps.random-version.outputs.version }}.tgz ${{ github.workspace }}/my-charts/
+      - name: Download chart file
+        uses: actions/download-artifact@v2
+        with:
+          name: my-charts
 
       - name: Echo GitHub workspace files
         run: |
