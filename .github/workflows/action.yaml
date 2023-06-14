@@ -29,10 +29,10 @@ jobs:
         run: |
           helm package -d ./charts/ --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
 
-      # - name: Checkout gh-pages branch
-      #   uses: actions/checkout@v2
-      #   with:
-      #     ref: gh-pages
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
 
       - name: Echo GitHub workspace files
         run: |
