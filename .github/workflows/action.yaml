@@ -54,14 +54,14 @@ jobs:
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
       
-      - name: Wait for 3 minutes
+      - name: Wait for 2 minutes
         run: |
-          echo "Waiting for 3 minutes..."
-          sleep 180
+          echo "Waiting for 2 minutes..."
+          sleep 120
      
       - name: Add chart and update repo in dev namespace
         run: |
-          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
+          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env/gh-pages --force-update
           helm repo update
           helm repo list
           helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
