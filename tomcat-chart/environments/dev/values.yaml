@@ -2,7 +2,7 @@ app:
   nameOverride: tomcat-demo
 
 spec:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: limarktest/nodejs-docker
     tag: latest
