@@ -35,7 +35,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-          git commit -m "feat: Update chart index"
+          git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
           git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:master -f
       
       - name: Echo GitHub workspace files
@@ -53,7 +53,7 @@ jobs:
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
       
-      - name: Wait for 5 minutes
+      - name: Wait for 3 minutes
         run: |
           echo "Waiting for 3 minutes..."
           sleep 180
@@ -66,5 +66,14 @@ jobs:
           helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
             --version ${{ steps.random-version.outputs.version }} \
             --namespace dev -f ${{ github.workspace }}/tomcat-chart/environments/dev/values.yaml 
+      
+      - name: Add chart and update repo in prod namespace
+        run: |
+          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
+          helm repo update
+          helm repo list
+          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
+            --version ${{ steps.random-version.outputs.version }} \
+            --namespace prod -f ${{ github.workspace }}/tomcat-chart/environments/prod/values.yaml 
 
 
