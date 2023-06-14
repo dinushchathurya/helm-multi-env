@@ -34,7 +34,7 @@ jobs:
           helm repo index --merge index.yaml .
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git checkout gh-pages || git checkout --orphan gh-pages
+          git checkout gh-pages
           git add index.yaml tomcat-chart-${{ steps.random-version.outputs.version }}.tgz 
           git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
           git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:gh-pages -f
