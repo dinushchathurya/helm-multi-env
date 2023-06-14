@@ -56,12 +56,10 @@ jobs:
       - name: Add chart and update
         run: |
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
-          # helm repo update
-          # helm fetch tomcat-chart/tomcat-chart --version ${{ steps.random-version.outputs.version }}
           helm repo update
           helm repo list
           helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
             --version ${{ steps.random-version.outputs.version }} \
-            --namespace dev 
+            --namespace dev --debug
 
 
