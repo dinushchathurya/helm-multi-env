@@ -48,9 +48,9 @@ jobs:
           git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
           git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:gh-pages -f
       
-      - name: Echo GitHub workspace files
-        run: |
-          ls ${{ github.workspace }}
+      # - name: Echo GitHub workspace files
+      #   run: |
+      #     ls ${{ github.workspace }}
       
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
