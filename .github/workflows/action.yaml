@@ -31,8 +31,7 @@ jobs:
 
       - name: Update chart repo index
         run: |
-          # helm repo index --merge index.yaml .
-          helm repo index --url https://github.com/dinushchathurya/tomcat-helm-multi-env --merge index.yaml .
+          helm repo index --merge index.yaml .
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
@@ -60,7 +59,7 @@ jobs:
           helm fetch tomcat-chart/tomcat-chart --version ${{ steps.random-version.outputs.version }}
           helm repo update
           helm repo list
-          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install \
+          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
             --version ${{ steps.random-version.outputs.version }} \
             --namespace dev 
 
