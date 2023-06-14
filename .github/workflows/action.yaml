@@ -34,6 +34,7 @@ jobs:
           helm repo index --merge index.yaml .
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          git fetch origin_repo gh-pages:gh-pages
           git checkout gh-pages
           git add .
           git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
