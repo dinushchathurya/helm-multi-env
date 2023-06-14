@@ -45,5 +45,5 @@ helm repo update
 ```
 helm install tomcat-chart tomcat-chart/tomcat-chart -f /environments/dev/values.yaml --namespace dev --version <required-version>
 
-helm install tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env/tomcat-chart-<version>.tgz -f /environments/dev/values.yaml --namespace dev
+helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --version v0.6.8-115 --namespace dev
 ```

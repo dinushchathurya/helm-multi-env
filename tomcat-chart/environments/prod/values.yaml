@@ -2,10 +2,10 @@ app:
   nameOverride: tomcat-demo
 
 spec:
-  replicaCount: 3
+  replicaCount: 2
   image:
-    repository: limarktest/tekton-nodejs
-    tag: b03edccda9b961ffbea183c06fbbee1aa56c7c38
+    repository: limarktest/nodejs-docker
+    tag: latest
     pullPolicy: IfNotPresent
   resources:
     limits: 
