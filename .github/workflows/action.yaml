@@ -61,7 +61,7 @@ jobs:
      
       - name: Add chart and update repo in dev namespace
         run: |
-          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env/tree/gh-pages --force-update
+          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
           helm repo update
           helm repo list
           helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
