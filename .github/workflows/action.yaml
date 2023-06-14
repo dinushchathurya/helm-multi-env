@@ -29,15 +29,15 @@ jobs:
         run: |
           helm package --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
 
-      # - name: Update chart repo index
-      #   run: |
-      #     helm repo index --url https://github.com/dinushchathurya/tomcat-helm-multi-env --merge index.yaml .
-      #     helm repo index --merge index.yaml .
-      #     git config --local user.email "actions@github.com"
-      #     git config --local user.name "GitHub Actions"
-      #     git add .
-      #     git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
-      #     git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/helm-chart-tomcat.git HEAD:main -f
+      - name: Update chart repo index
+        run: |
+          # helm repo index --url https://github.com/dinushchathurya/tomcat-helm-multi-env --merge index.yaml .
+          helm repo index --merge index.yaml .
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
+          git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/helm-chart-tomcat.git HEAD:main -f
 
       - name: Update chart repo index
         run: |
