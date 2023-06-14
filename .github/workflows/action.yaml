@@ -28,6 +28,11 @@ jobs:
       - name: Package Helm Chart
         run: |
           helm package -d ./charts/ --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
+      
+      - name: Copy chart file
+        run: |
+          mkdir -p ./my-charts
+          cp /home/runner/work/tomcat-helm-multi-env/tomcat-helm-multi-env/${{ steps.random-version.outputs.version }}.tgz ./my-charts/
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
