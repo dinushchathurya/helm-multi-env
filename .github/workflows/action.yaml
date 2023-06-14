@@ -39,7 +39,7 @@ jobs:
           git add .
           git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
           # git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:master -f
-          git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD:gh-pages -f
+          git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/tomcat-helm-multi-env.git HEAD -f
       
       - name: Echo GitHub workspace files
         run: |
