@@ -36,7 +36,7 @@ jobs:
       - name: Copy chart file
         run: |
           mkdir -p ./my-charts
-          cp ./charts/tomcat-helm-multi-en:${{ steps.random-version.outputs.version }}.tgz ./my-charts/
+          cp ${{ github.workspace }}/charts/tomcat-helm-multi-env:${{ steps.random-version.outputs.version }}.tgz ./my-charts/
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
