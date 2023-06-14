@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  tomcat-chart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-14T13:29:07.842130372Z"
+    description: A Helm chart for tomcat
+    digest: dca2cf4d5242b084333272ad70624be36a39ec3307940edfc952499147b3d526
+    name: tomcat-chart
+    type: application
+    urls:
+    - tomcat-chart-v0.2.3-162.tgz
+    version: v0.2.3-162
+generated: "2023-06-14T13:29:07.840327359Z"
