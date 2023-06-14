@@ -28,11 +28,7 @@ jobs:
       - name: Package Helm Chart
         run: |
           helm package --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
-      
-      - name: Echo GitHub workspace files
-        run: |
-          ls ${{ github.workspace }}
-      
+            
       - name: Copy chart file
         run: |
           mkdir -p ./my-charts
@@ -42,6 +38,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
+      
+      - name: Copy chart file to new workspace
+        run: |
+          mkdir -p ${{ github.workspace }}/my-charts
+          cp ./my-charts/tomcat-chart-${{ steps.random-version.outputs.version }}.tgz ${{ github.workspace }}/my-charts/
 
       - name: Echo GitHub workspace files
         run: |
