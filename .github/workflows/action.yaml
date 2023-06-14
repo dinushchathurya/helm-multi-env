@@ -52,8 +52,17 @@ jobs:
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
+      
+      - name: Manual Approval
+        id: manual-approval
+        if: github.event_name == 'workflow_dispatch'
+        uses: technote-space/workflow-dispatch-action@v1
+        with:
+          approve-comment: "Approve deployment"
+          cancel-comment: "Cancel deployment"
     
       - name: Add chart and update
+        if: github.event_name == 'workflow_dispatch' && steps.manual-approval.outputs.approved == 'true'
         run: |
           helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
           helm repo update
