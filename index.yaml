@@ -441,4 +441,14 @@ entries:
     urls:
     - tomcat-chart-v0.1.6-93.tgz
     version: v0.1.6-93
-generated: "2023-06-14T06:10:19.27932574Z"
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-14T06:15:57.933716456Z"
+    description: A Helm chart for tomcat
+    digest: 66397187b0077086c86bb9051ff4bd02b8e381474b065d64f8b56fd1d760404b
+    name: tomcat-chart
+    type: application
+    urls:
+    - https://github.com/dinushchathurya/tomcat-helm-multi-env/tomcat-chart-v0.1.1-131.tgz
+    version: v0.1.1-131
+generated: "2023-06-14T06:15:57.933082049Z"
