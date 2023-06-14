@@ -95,6 +95,6 @@ jobs:
           helm repo list
           helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
             --version ${{ steps.random-version.outputs.version }} \
-            --namespace prod -f ${{ github.workspace }}/tomcat-chart/environments/prod/values.yaml 
+            --namespace prod -f ${{ github.workspace }}/tomcat-chart/environments/prod/values.yaml   
 
 
