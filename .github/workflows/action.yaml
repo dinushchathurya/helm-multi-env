@@ -36,6 +36,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "feat: Update chart index with version ${{ steps.random-version.outputs.version }}"
+          git remote set-url origin https://github.com/dinushchathurya/helm-chart-tomcat.git
           git push https://dinushchathurya:${{ secrets.PAT_TOKEN }}@github.com/dinushchathurya/helm-chart-tomcat.git HEAD:master -f
 
       # - name: Update index
@@ -67,5 +68,5 @@ jobs:
       #     helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --version ${{ steps.random-version.outputs.version }} --create-namespace --namespace dev 
         
 
-      
+
 
