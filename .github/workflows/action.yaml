@@ -32,7 +32,7 @@ jobs:
       - name: Copy chart file
         run: |
           mkdir -p ./my-charts
-          cp /home/runner/work/tomcat-helm-multi-env/tomcat-helm-multi-env/${{ steps.random-version.outputs.version }}.tgz ./my-charts/
+          cp ./charts/tomcat-helm-multi-en:${{ steps.random-version.outputs.version }}.tgz ./my-charts/
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
