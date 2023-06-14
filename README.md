@@ -44,9 +44,6 @@ helm repo update
 
 ```
 helm install tomcat-chart tomcat-chart/tomcat-chart -f /environments/dev/values.yaml --namespace dev --version <required-version>
+
+helm install tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env/tomcat-chart-<version>.tgz -f /environments/dev/values.yaml --namespace dev
 ```
-
-helm install tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env/tomcat-chart-v0.3.8-68.tgz -f /environments/dev/values.yaml --namespace dev
-
-
-aws eks update-kubeconfig --region ap-southeast-1 --name test
