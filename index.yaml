@@ -113,7 +113,7 @@ entries:
     version: v0.7.9-133
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-14T09:03:21.708468733Z"
+    created: "2023-06-14T11:49:20.607391903Z"
     description: A Helm chart for tomcat
     digest: 0054c3da1281f90467196a3b138531762d4174b7156f9404accb262181e1f7dd
     name: tomcat-chart
@@ -221,6 +221,16 @@ entries:
     urls:
     - tomcat-chart-v0.6.5-92.tgz
     version: v0.6.5-92
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-14T11:49:20.607047301Z"
+    description: A Helm chart for tomcat
+    digest: 16dae7ce7a7e334365cf3d8b06492415b497209dce5839fde22e846f667c9e35
+    name: tomcat-chart
+    type: application
+    urls:
+    - tomcat-chart-v0.6.4-141.tgz
+    version: v0.6.4-141
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-06-14T05:29:07.170563455Z"
@@ -433,7 +443,7 @@ entries:
     version: v0.2.5-96
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-14T09:03:21.707891727Z"
+    created: "2023-06-14T11:49:20.6067236Z"
     description: A Helm chart for tomcat
     digest: a1e24c96d682ba298abc235caca697ef3d28b89e2b64155012c1ed37353c3cbe
     name: tomcat-chart
@@ -501,4 +511,4 @@ entries:
     urls:
     - https://github.com/dinushchathurya/tomcat-helm-multi-env/tomcat-chart-v0.1.1-131.tgz
     version: v0.1.1-131
-generated: "2023-06-14T09:03:21.707169519Z"
+generated: "2023-06-14T11:49:20.606207798Z"
