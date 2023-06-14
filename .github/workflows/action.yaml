@@ -29,7 +29,12 @@ jobs:
         run: |
           helm package --version ${{ steps.random-version.outputs.version }} ./tomcat-chart
 
-      - name: Update chart repo index
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      
+      - name: Update chart repo index in 
         run: |
           helm repo index --merge index.yaml .
           git config --local user.email "actions@github.com"
