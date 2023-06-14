@@ -53,48 +53,18 @@ jobs:
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
       
-      - name: Manual approval
-        id: select-options
+      - name: Wait for 5 minutes
         run: |
-          echo "##[group]Select an option"
-          echo "::set-output name=selectedOption::$( \
-            bash -c ' \
-              options=("Option A" "Option B" "Option C"); \
-              select opt in "${options[@]}"; do \
-                case $opt in \
-                  "OK") echo "ok"; break;; \
-                  "CANCEL") echo "cancel"; break;; \
-                  *) echo "Invalid option";; \
-                esac; \
-              done \
-            ' \
-          )"
-          echo "##[endgroup]"
-            
+          echo "Waiting for 5 minutes..."
+          sleep 300
+     
       - name: Add chart and update repo
         run: |
-          selectedOption=${{ steps.select-options.outputs.selectedOption }}
-          case $selectedOption in
-            "ok")
-              # Run specific steps for Option A
-              helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
-              helm repo update
-              helm repo list
-              helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
-                --version ${{ steps.random-version.outputs.version }} \
-                --namespace dev --debug
-              # ...
-              ;;
-            "cancel")
-              # Run specific steps for Option B
-              exit 1
-              # ...
-              ;;
-            *)
-              echo "Invalid option selected. Exiting workflow."
-              exit 1
-              ;;
-          esac
-          
+          helm repo add tomcat-chart https://dinushchathurya.github.io/tomcat-helm-multi-env --force-update
+          helm repo update
+          helm repo list
+          helm upgrade tomcat-chart tomcat-chart/tomcat-chart --install --devel \
+            --version ${{ steps.random-version.outputs.version }} \
+            --namespace dev --debug
 
 
