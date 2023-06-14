@@ -49,12 +49,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: my-charts
-
-      - name: Echo GitHub workspace files
-        run: |
-          ls ${{ github.workspace }}
       
-      - name: Update chart repo index in 
+      - name: Update chart repo index in gh-pages branch
         run: |
           helm repo index --merge index.yaml .
           git config --local user.email "actions@github.com"
@@ -78,6 +74,11 @@ jobs:
         run: |
           echo "Waiting for 2 minutes..."
           sleep 100
+      
+      - name: Switch back to master branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.sha }}
      
       - name: Add chart and update repo in dev namespace
         run: |
