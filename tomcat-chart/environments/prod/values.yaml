@@ -16,7 +16,7 @@ spec:
       memory: 128Mi
 
 hpa:
-  enabled: true
+  enabled: false
   maxReplicas: 5
   minReplicas: 1
   targetCPUUtilizationPercentage: 80
