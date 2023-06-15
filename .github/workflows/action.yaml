@@ -73,7 +73,7 @@ jobs:
       - name: Wait till chart repo is updated in gh-pages
         run: |
           echo "Waiting for updating chart repo in gh-pages..."
-          sleep 100
+          sleep 80
       
       - name: Switch back to master branch
         uses: actions/checkout@v2
