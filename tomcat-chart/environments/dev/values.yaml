@@ -4,8 +4,8 @@ app:
 spec:
   replicaCount: 1
   image:
-    repository: alexwhen/docker-2048
-    tag: latest
+    repository: limarktest/tekton-nodejs
+    tag: c470d91172eba2504ed4c52221b9185bca78b1b4
     pullPolicy: IfNotPresent
   resources:
     limits: 
