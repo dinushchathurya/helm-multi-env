@@ -70,9 +70,9 @@ jobs:
         run: |
           aws eks update-kubeconfig --name test --region ap-southeast-1
       
-      - name: Wait for 2 minutes
+      - name: Wait till chart repo is updated in gh-pages
         run: |
-          echo "Waiting for 2 minutes..."
+          echo "Waiting for updating chart repo in gh-pages..."
           sleep 100
       
       - name: Switch back to master branch
